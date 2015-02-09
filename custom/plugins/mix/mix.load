@@ -1,0 +1,7 @@
+function suggestions_help
+  eval $argv -h | sed -n "s:^$argv \(\(\w\+.\)\+\).*\(# .*\):complete --no-files -c $argv --arguments \"\1\" --description \"\2\":p"
+end
+
+for arg in (suggestions_help mix)
+  eval $arg
+end
